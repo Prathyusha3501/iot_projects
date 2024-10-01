@@ -1,0 +1,38 @@
+Abstract:
+This project aims to create a smart street light system using Arduino Uno and LDR sensor. The system will automatically turnoff the streetlights during daytime and turn them on at night,
+providing efficient and automated lighting control.
+
+Components Required:
+1. Arduino Uno
+2. LDR (Light Dependent Resistor) sensor
+3. Resistor
+4. Jumper wires
+5. Breadboard
+6. LEDs (for simulation purposes in Tinkercad)
+7. USB cable for uploading code to Arduino
+8. Tinkercad account (for simulation)
+
+CODE:
+
+int sensor=A0;
+int led1=13;
+int value;
+void setup()
+{
+  pinMode(led1, OUTPUT);
+  pinMode(sensor,INPUT);
+}
+
+void loop()
+{
+  value=analogRead(sensor);
+  if(value>500){
+    digitalWrite(led1,LOW);
+  
+  }
+  else{
+    digitalWrite(led1,HIGH);
+  }
+  delay(500);
+  
+}
