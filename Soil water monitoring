@@ -1,0 +1,40 @@
+2.Soil water monitoring
+
+Abstract:
+The Smart Watering Alert system utilizes an Arduino Uno along with a moisture sensor to detect soil moisture levels. When the soil is dry, the system triggers an alert through both sound
+(buzzer) and light (LED) to notify users that the plants require watering. Conversely, when the soil is wet, no alert is given, allowing for regular watering routines to proceed undisturbed.
+
+Components Required:
+1. Arduino Uno
+2. Moisture sensor
+3. Jumper wires
+4. Breadboard
+5. Buzzer (piezo)
+6. LEDs
+7. USB cable for uploading code to Arduino
+8. Tinkercad account (for simulation)
+
+Code:
+int moisturepin=A0;
+int led=8;
+int buzzer=13;
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(moisturepin, INPUT);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop()
+{
+  int moisturelevel=analogRead(moisturepin);
+  if(moisturelevel<500){
+    digitalWrite(led,HIGH);
+     digitalWrite(buzzer,HIGH);
+  }
+  else{
+    digitalWrite(led,LOW);
+     digitalWrite(buzzer,LOW);
+  }
+  delay(500);
+}
